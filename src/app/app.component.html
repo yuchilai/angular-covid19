@@ -1,0 +1,116 @@
+
+<!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+      <img src="assets/image/covid19_1.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        {{ title }}
+    </a>
+
+    
+  
+      <ul class="nav justify-content-end">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">English</a>
+            <a class="dropdown-item" href="#">Chinese</a>
+          </div>
+        </li>
+      </ul>
+  </nav>
+
+<div style="text-align:center">
+
+    <!-- <h1>
+      Welcome to {{ title }}! {{ time | date: 'hh:mm:ss a' }} {{time | date: 'fullDate'}}
+    </h1> -->
+    <br>
+    <br>
+    <img width="300" alt="Angular Logo" src="assets/image/Covid19.jpg">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Total Cases</h2>
+              <h3 class="p-3 mb-2 bg-warning text-dark"><p class="card-text">{{posts.cases}}</p></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Deaths</h2>
+              <h3 class="p-3 mb-2 bg-danger text-white"><p class="card-text">{{posts.deaths}}</p></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Recovered</h2>
+              <h3 class="p-3 mb-2 bg-success text-white"><p class="card-text">{{posts.recovered}}</p></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <h3><label for="searchText">Search: </label></h3>
+    <input class="form-control" type="search" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" 
+      id="searchText"  [(ngModel)]="searchText" placeholder="Search Country">
+  </div>
+  
+  
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+          <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1">Country</th>
+                  <th class="cell100 column2">Cases</th>
+                  <th class="cell100 column3">Today Cases</th>
+                  <th class="cell100 column4">Deaths</th>
+                  <th class="cell100 column5">Today Deaths</th>
+                  <th class="cell100 column6">Recovered</th>
+                  <th class="cell100 column7">Critical</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+  
+          <div class="table100-body js-pscroll">
+            <table>
+              <tbody>
+                <tr class="row100 body" *ngFor="let country of countries | filter: searchText">
+                  <td class="cell100 column1"><img width="80" height="50" src="assets/image/{{country.country}}.jpg" alt="{{country.country}}"><p class="font-weight-bold">{{country.country}}</p></td>
+                  <td class="cell100 column2"><p class="text-secondary font-weight-bold">{{country.cases}}</p></td>
+                  <td class="cell100 column3 "><p class="text-primary">+{{country.todayCases}}&nbsp;&nbsp;<span class="badge badge-secondary">New</span></p></td>
+                  <td class="cell100 column4"><p class="text-danger">{{country.deaths}}</p></td>
+                  <td class="cell100 column5"><p class="text-primary">+{{country.todayDeaths}}&nbsp;&nbsp;<span class="badge badge-secondary">New</span></p></td>
+                  <td class="cell100 column6"><p class="text-success">{{country.recovered}}</p></td>
+                  <td class="cell100 column7"><p class="text-info">{{country.critical}}</p></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

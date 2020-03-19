@@ -52,16 +52,16 @@ export class AppComponent {
     setInterval(() => {
       this.time = new Date();
    }, 1000);
-  //  setInterval(() => {
-  //   this.http.get(apiCountries).subscribe((response:any)=>{
-  //     // console.log(response);
-  //     this.countries=response;
-  //   }, () => alert("Service is overwhelmed"));
-  //   this.http.get(apiAll).subscribe((response:any)=>{
-  //     // console.log(response);
-  //     this.posts=response;
-  //   }, () => alert("Service is overwhelmed"));
-  // }, 5000);
+   setInterval(() => {
+    this.http.get(apiCountries).subscribe((response:any)=>{
+      // console.log(response);
+      this.countries=response;
+    }, () => alert("Service is overwhelmed"));
+    this.http.get(apiAll).subscribe((response:any)=>{
+      // console.log(response);
+      this.posts=response;
+    }, () => alert("Service is overwhelmed"));
+  }, 5000);
 }
 
   getPosts(){
